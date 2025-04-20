@@ -292,5 +292,4 @@ public *;
 # Optional. For using GSON @Expose annotation
 -keepattributes AnnotationDefault,RuntimeVisibleAnnotations
 
-#-keep class com.roy93group.noteking.data.** { *; }
 -keep class com.fptflash.** { *; }
