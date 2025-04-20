@@ -3,10 +3,9 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdk 34
-//    buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.roy93group.noteking"
+        applicationId "com.fptflash.noteios"
         minSdkVersion 23
         targetSdkVersion 34
 
@@ -59,7 +58,7 @@ android {
         viewBinding true
     }
 
-    namespace 'com.roy93group.noteking'
+    namespace 'com.fptflash.noteios'
     lint {
         disable 'ContentDescription', 'NotifyDataSetChanged', 'InflateParams'
     }
@@ -78,7 +77,7 @@ android {
 //            applicationId = "com.roy93group.noteking.dev"
             dimension "type"
             buildConfigField("String", "FLAVOR_buildEnv", '"dev"')
-            resValue ("string", "generalAppName", "NoteKing DEV")
+            resValue("string", "generalAppName", "NoteKing DEV")
 
             resValue("string", "SDK_KEY", "e75FnQfS9XTTqM1Kne69U7PW_MBgAnGQTFvtwVVui6kRPKs5L7ws9twr5IQWwVfzPKZ5pF2IfDa7lguMgGlCyt")
             resValue("string", "BANNER", "")
@@ -92,7 +91,7 @@ android {
 //            applicationId = "com.roy93group.noteking.prod"
             dimension "type"
             buildConfigField("String", "FLAVOR_buildEnv", '"prod"')
-            resValue ("string", "generalAppName", "NoteKing")
+            resValue("string", "generalAppName", "NoteKing")
 
             resValue("string", "SDK_KEY", "e75FnQfS9XTTqM1Kne69U7PW_MBgAnGQTFvtwVVui6kRPKs5L7ws9twr5IQWwVfzPKZ5pF2IfDa7lguMgGlCyt")
             resValue("string", "BANNER", "")

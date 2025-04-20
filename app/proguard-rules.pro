@@ -293,4 +293,4 @@ public *;
 -keepattributes AnnotationDefault,RuntimeVisibleAnnotations
 
 #-keep class com.roy93group.noteking.data.** { *; }
--keep class com.roy93group.** { *; }
+-keep class com.fptflash.** { *; }

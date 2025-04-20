@@ -51,14 +51,14 @@
             android:parentActivityName=".MainActivity" />
 
         <receiver
-            android:name="com.roy93group.noteking.systemInteraction.receiver.RebootReceiver"
+            android:name="com.fptflash.noteios.systemInteraction.receiver.RebootReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.roy93group.noteking.systemInteraction.receiver.NotificationReceiver" />
+        <receiver android:name="com.fptflash.noteios.systemInteraction.receiver.NotificationReceiver" />
     </application>
 
 </manifest>

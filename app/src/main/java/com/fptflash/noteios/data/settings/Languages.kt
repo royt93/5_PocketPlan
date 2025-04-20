@@ -1,0 +1,10 @@
+package com.fptflash.noteios.data.settings
+
+enum class Languages(val index: Double, val code: String) {
+    ENGLISH(0.0, "en"),
+    GERMAN(1.0, "de"),
+    FRENCH(2.0, "fr"),
+    SPANISH(3.0, "es"),
+    RUSSIAN(4.0, "ru"),
+    ITALIAN(5.0, "it")
+}

@@ -1,0 +1,56 @@
+package com.fptflash.noteios.data.shoppinglist
+
+import androidx.annotation.Keep
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
+import com.fptflash.noteios.App
+import com.fptflash.noteios.data.settings.Languages
+import com.fptflash.noteios.data.settings.SettingId
+import com.fptflash.noteios.data.settings.SettingsManager
+
+@Keep
+class ItemTemplateList : ArrayList<ItemTemplate>() {
+    init {
+        loadFromAssets()
+    }
+
+    /**
+     * Returns an ItemTemplate if one was defined in the assets item_list_de.json file.
+     * @param name The name the ItemTemplate is supposed to have.
+     * @return Returns the template if found, null otherwise.
+     */
+    fun getTemplateByName(name: String): ItemTemplate? {
+        this.forEach { e ->
+            if (e.n.equals(name, ignoreCase = true)) {
+                return e
+            }
+        }
+        return null
+    }
+
+    private fun loadFromAssets() {
+        val languageCode = when (SettingsManager.getSetting(SettingId.LANGUAGE)) {
+            Languages.ITALIAN.index -> Languages.ITALIAN.code
+            Languages.RUSSIAN.index -> Languages.RUSSIAN.code
+            Languages.SPANISH.index -> Languages.SPANISH.code
+            Languages.FRENCH.index -> Languages.FRENCH.code
+            Languages.GERMAN.index -> Languages.GERMAN.code
+            else -> Languages.ENGLISH.code
+        }
+        val fileName = "item_list_$languageCode.json"
+        //todo add try catch here
+        val jsonString = App.instance.assets.open(fileName).bufferedReader().readText()
+
+        val list: ArrayList<TMPTemplate> = GsonBuilder().create()
+            .fromJson(jsonString, object : TypeToken<ArrayList<TMPTemplate>>() {}.type)
+
+        list.forEach { e ->
+            this.add(ItemTemplate(e.n, e.c, "x"))
+        }
+    }
+
+    private class TMPTemplate(val n: String, val c: String)
+}
+
+@Keep
+data class ItemTemplate(var n: String, var c: String, var s: String)
